@@ -1,3 +1,4 @@
+import Button from "./Button"
 import { Input } from "./Input"
 
 // const labels = ["Top Text", "Bottom Text"];
@@ -8,6 +9,7 @@ const Form = () => {
       <div className="grid grid-cols-2 grid-rows-3">
         <Input labelName="Top Text" />
         <Input labelName="Bottom Text"/>
+        <Button />
       </div>
     </form >
   )
