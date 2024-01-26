@@ -8,7 +8,7 @@ function App() {
     <>
       <Header />
       <div className="bg-zinc-700 w-full h-screen">
-        <section className='bg-red-500 px-11'>
+        <section className='px-7'>
           <Form />
         </section>
       </div>
