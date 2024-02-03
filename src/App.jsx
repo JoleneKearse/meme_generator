@@ -7,11 +7,11 @@ function App() {
   return (
     <>
       <Header />
-      <div className="bg-zinc-700 w-full h-screen">
-        <section className='px-7'>
+      <main className="bg-zinc-700 w-full h-screen flex place-content-center">
+        <section className="px-7 w-5/6 md:max-w-prose">
           <Form />
         </section>
-      </div>
+      </main>
     </>
   )
 }
