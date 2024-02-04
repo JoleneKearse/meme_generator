@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       screens: {
-        'md': '820px',
-        'lg': '1000px',
-      }
+        md: "820px",
+        lg: "1000px",
+      },
     },
   },
   plugins: [],
