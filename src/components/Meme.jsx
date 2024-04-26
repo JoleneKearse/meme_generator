@@ -1,10 +1,10 @@
-const Meme = ({ meme }) => {
+const Meme = ({ memeImage }) => {
   return (
     <section
     className="flex flex-col items-center justify-center"
     >
       <img 
-        src={meme} 
+        src={memeImage} 
         alt="randomly generated meme" 
         className="my-10"
       />

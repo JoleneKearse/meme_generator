@@ -6,15 +6,14 @@ import Meme from "./Meme";
 import memesData from "../memesData";
 
 const Form = () => {
-  const [meme, setMeme] = useState("");
+  const [memeImage, setMemeImage] = useState("");
   // const [topText, setTopText] = useState("");
   // const [bottomText, setBottomText] = useState("");
 
   const handleClick = () => {
-    console.log("clicked");
     const memesArr = memesData.data.memes;
-    const randomMeme = memesArr[Math.floor(Math.random() * memesArr.length)];
-    setMeme(randomMeme.url);
+    const randomMeme = memesArr[Math.floor(Math.random() * memesArr.length)].url;
+    setMemeImage(randomMeme);
   }
 
   return (
@@ -34,7 +33,7 @@ const Form = () => {
         />
       </div>
       <Button handleClick={handleClick} />
-      <Meme meme={meme} />
+      <Meme memeImage={memeImage} />
     </div>
   )
 }
