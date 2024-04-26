@@ -1,14 +1,14 @@
-import './main.css'
-import Header from "./components/Header"
-import Form from './components/Form'
+import './main.css';
+import Header from "./components/Header";
+import Form from "./components/Form";
 
 function App() {
 
   return (
     <>
       <Header />
-      <main className="bg-zinc-700 w-full h-screen flex place-content-center">
-        <section className="px-7 w-5/6 md:max-w-prose">
+      <main className="flex w-full h-full bg-zinc-700 place-content-center">
+        <section className="w-5/6 px-7 md:max-w-prose">
           <Form />
         </section>
       </main>
@@ -16,4 +16,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

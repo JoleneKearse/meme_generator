@@ -1,11 +1,11 @@
-import LOL from "/lol.svg"
+import LOL from "/lol.svg";
 
 const Header = () => {
   return (
-    <header className="w-full flex flex-wrap gap-2 justify-between px-11 py-8 bg-zinc-900 font-mono">
+    <header className="flex flex-wrap justify-between w-full gap-2 py-8 font-mono px-11 bg-zinc-900">
       <div className="flex items-center gap-4">
         <img src={LOL} alt="LOL" className="w-8" />
-        <h1 className="text-3xl text-stone-200 font-semibold">Meme Generator</h1>
+        <h1 className="text-3xl font-semibold text-stone-200">Meme Generator</h1>
       </div>
       <div>
         <h2 className="text-base text-stone-200">React Course - Project 3</h2>
@@ -14,4 +14,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;
