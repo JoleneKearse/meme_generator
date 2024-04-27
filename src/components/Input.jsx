@@ -1,4 +1,4 @@
-const Input = ({ htmlFor, labelName, id, placeholder }) => (
+const Input = ({ htmlFor, labelName, id, placeholder, name, value, handleChange }) => (
   <div className="flex flex-col min-w-full py-4">
     <label
       htmlFor={htmlFor}
@@ -8,9 +8,11 @@ const Input = ({ htmlFor, labelName, id, placeholder }) => (
     </label>
     <input
       type="text"
-      name="top"
+      name={name}
+      value={value}
       id={id}
       placeholder={placeholder}
+      onChange={handleChange}
       className="p-2 text-lg border-2 rounded-md border-slate-950 bg-zinc-400 text-stone-100" />
   </div>
 )

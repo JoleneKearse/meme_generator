@@ -22,24 +22,38 @@ const Form = () => {
     }));
   }
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setMeme(prevMeme => ({
+      ...prevMeme,
+      [name]: value,
+    }))
+  }
+
   return (
     <div className='font-mono text-xl text-stone-200'>
-      <div className="grid ">
+      <div className="grid">
         <Input
           labelName={"Top Text"}
           placeholder={"Top Text"}
           id={"top"}
           htmlFor={"top"}
+          name="topText"
+          value={meme.topText}
+          handleChange={handleChange}
         />
         <Input
           labelName={"Bottom Text"}
           placeholder={"Bottom Text"}
           id={"bottom"}
           htmlFor={"bottom"}
+          name="bottomText"
+          value={meme.bottomText}
+          handleChange={handleChange}
         />
       </div>
       <Button getMemeImage={getMemeImage} />
-      <Meme meme={meme.randomImage} />
+      <Meme meme={meme.randomImage} topText={meme.topText} bottomText={meme.bottomText} />
     </div>
   )
 }
