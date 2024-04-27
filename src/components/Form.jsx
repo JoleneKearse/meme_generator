@@ -6,14 +6,20 @@ import Meme from "./Meme";
 import memesData from "../memesData";
 
 const Form = () => {
-  const [memeImage, setMemeImage] = useState("");
-  // const [topText, setTopText] = useState("");
-  // const [bottomText, setBottomText] = useState("");
+  const [meme, setMeme] = useState({
+    topText: "",
+    bottomText: "",
+    randomImage: "https://i.imgflip.com/9ehk.jpg",
+  });
+  const [allMemeImages, setAllMemeImages] = useState(memesData);
 
-  const handleClick = () => {
-    const memesArr = memesData.data.memes;
+  const getMemeImage = () => {
+    const memesArr = allMemeImages.data.memes;
     const randomMeme = memesArr[Math.floor(Math.random() * memesArr.length)].url;
-    setMemeImage(randomMeme);
+    setMeme(prevMeme => ({
+      ...prevMeme,
+      randomImage: randomMeme,
+    }));
   }
 
   return (
@@ -32,8 +38,8 @@ const Form = () => {
           htmlFor={"bottom"}
         />
       </div>
-      <Button handleClick={handleClick} />
-      <Meme memeImage={memeImage} />
+      <Button getMemeImage={getMemeImage} />
+      <Meme meme={meme.randomImage} />
     </div>
   )
 }
