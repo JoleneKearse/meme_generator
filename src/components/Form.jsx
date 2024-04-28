@@ -51,7 +51,7 @@ const Form = () => {
     <div className="relative font-mono text-xl text-stone-200">
       <div className="grid">
         <button
-          className="absolute mt-4 right-10 hover:scale-110"
+          className="absolute mt-2 right-10 hover:scale-110"
           onClick={handleHelpClick}
         >
           <img
