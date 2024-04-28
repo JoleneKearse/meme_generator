@@ -21,6 +21,8 @@ Built with JavaScript, React, Tailwind CSS, Vite, PNPM, and the [ImgFlip API](ht
 
 Meme Generator pulls popular meme images from an API and allows the user to find their fave and add top and bottom text to them.  
 
+Here's the given project:
+
 ![sample screenshot](./src/assets/meme-gen.png)
 
 The learning goals were:
@@ -29,6 +31,9 @@ The learning goals were:
 - **Conditional Rendering**
 - Working with **Forms** in React,
 - And managing **side effects**
+
+Here's what I ended up with:
+![walkthrough of my app](./src/assets/walkthrough.gif)
 
 <br/>
 
