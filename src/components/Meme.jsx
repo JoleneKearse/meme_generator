@@ -33,8 +33,8 @@ const Meme = ({ meme }) => {
         alt={meme.altText}
         className="my-20"
       />
-      <h3 className="absolute text-3xl tracking-wide text-center top-16 font-rubik drop-shadow text-shadow-heavy">{meme.topText}</h3>
-      <h3 className="absolute text-3xl tracking-wide text-center bottom-16 font-rubik text-shadow-heavy">{meme.bottomText}</h3>
+      <h3 className="absolute text-3xl tracking-wide text-center top-24 font-rubik drop-shadow text-shadow-heavy">{meme.topText}</h3>
+      <h3 className="absolute text-3xl tracking-wide text-center bottom-24 font-rubik text-shadow-heavy">{meme.bottomText}</h3>
     </button>
   )
 }
