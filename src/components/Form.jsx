@@ -15,7 +15,7 @@ const Form = () => {
     altText: "Batman smacking Robin",
   });
   const [allMemes, setAllMemes] = useState([]);
-  const [showInstructions, setShowInstructions] = useState(true);
+  const [showInstructions, setShowInstructions] = useState(false);
 
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
