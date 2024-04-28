@@ -23,7 +23,7 @@ const Meme = ({ meme }) => {
 
   return (
     <button
-      className="flex flex-col items-center justify-center"
+      className="relative flex flex-col items-center justify-center"
       ref={sectionRef}
       onClick={capture}
       title="Click to download meme"
