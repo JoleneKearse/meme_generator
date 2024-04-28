@@ -8,6 +8,7 @@ const Form = () => {
     topText: "",
     bottomText: "",
     randomImage: "https://i.imgflip.com/9ehk.jpg",
+    altText: "Batman smacking Robin",
   });
   const [allMemes, setAllMemes] = useState([]);
 
@@ -19,10 +20,13 @@ const Form = () => {
 
   const getMemeImage = () => {
     const randomNumber = Math.floor(Math.random() * allMemes.length);
-    const url = allMemes[randomNumber].url;
+    const randomMeme = allMemes[randomNumber];
+    const url = randomMeme.url;
+    const alt = randomMeme.name;
     setMeme(prevMeme => ({
       ...prevMeme,
-      randomImage: url
+      randomImage: url,
+      altText: alt
     }));
   }
 
@@ -57,7 +61,7 @@ const Form = () => {
         />
       </div>
       <Button getMemeImage={getMemeImage} />
-      <Meme meme={meme.randomImage} topText={meme.topText} bottomText={meme.bottomText} />
+      <Meme meme={meme.randomImage} topText={meme.topText} bottomText={meme.bottomText} altText={meme.altText} />
     </div>
   )
 }

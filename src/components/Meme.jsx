@@ -1,11 +1,11 @@
-const Meme = ({ meme, topText, bottomText }) => {
+const Meme = ({ meme, topText, bottomText, altText }) => {
   return (
     <section
       className="relative flex flex-col items-center justify-center"
     >
       <img
         src={meme}
-        alt="randomly generated meme"
+        alt={altText}
         className="my-10"
       />
       <h3 className="absolute text-3xl tracking-wide text-center top-16 font-rubik drop-shadow text-shadow-heavy">{topText}</h3>
