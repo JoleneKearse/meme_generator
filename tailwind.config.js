@@ -12,7 +12,11 @@ export default {
       fontFamily: {
         rubik: ["Rubik Mono One", ...defaultTheme.fontFamily.sans],
       },
+      textShadow: {
+        heavy:
+          "2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000, 2px 2px 5px #000",
+      },
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-textshadow")],
 };
