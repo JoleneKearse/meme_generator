@@ -745,6 +745,10 @@ video {
   font-weight: 600;
 }
 
+.font-bold{
+  font-weight: 700;
+}
+
 .tracking-wide{
   letter-spacing: 0.025em;
 }
@@ -757,6 +761,16 @@ video {
 .text-stone-200{
   --tw-text-opacity: 1;
   color: rgb(231 229 228 / var(--tw-text-opacity));
+}
+
+.text-stone-700{
+  --tw-text-opacity: 1;
+  color: rgb(68 64 60 / var(--tw-text-opacity));
+}
+
+.text-stone-900{
+  --tw-text-opacity: 1;
+  color: rgb(28 25 23 / var(--tw-text-opacity));
 }
 
 .drop-shadow{

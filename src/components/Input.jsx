@@ -13,7 +13,7 @@ const Input = ({ htmlFor, labelName, id, placeholder, name, value, handleChange 
       id={id}
       placeholder={placeholder}
       onChange={handleChange}
-      className="p-2 text-lg border-2 rounded-md border-slate-950 bg-zinc-400 text-stone-100" />
+      className="p-2 text-lg font-bold tracking-wide border-2 rounded-md border-slate-950 bg-zinc-400 text-stone-900" />
   </div>
 )
 
