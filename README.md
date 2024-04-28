@@ -1,6 +1,6 @@
 # Meme Generator
 
-Visit the live site
+Visit the [live site](https://meme-generator-vkdn.vercel.app/)
 
 This is a *heavily-modified* project from the [Scrimba Frontend Developer Career Path](https://scrimba.com/learn/frontend) that I began long ago, but just returned to in April 2024.  
 

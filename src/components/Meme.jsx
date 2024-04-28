@@ -23,7 +23,7 @@ const Meme = ({ meme }) => {
 
   return (
     <button
-      className="relative flex flex-col items-center justify-center"
+      className="flex flex-col items-center justify-center"
       ref={sectionRef}
       onClick={capture}
       title="Click to download meme"
@@ -31,7 +31,7 @@ const Meme = ({ meme }) => {
       <img
         src={meme.randomImage}
         alt={meme.altText}
-        className="my-20"
+        className="block h-auto max-w-full mx-auto my-20"
       />
       <h3 className="absolute text-3xl tracking-wide text-center top-24 font-rubik drop-shadow text-shadow-heavy">{meme.topText}</h3>
       <h3 className="absolute text-3xl tracking-wide text-center bottom-24 font-rubik text-shadow-heavy">{meme.bottomText}</h3>
