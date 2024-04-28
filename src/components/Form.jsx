@@ -61,7 +61,7 @@ const Form = () => {
         />
       </div>
       <Button getMemeImage={getMemeImage} />
-      <Meme meme={meme.randomImage} topText={meme.topText} bottomText={meme.bottomText} altText={meme.altText} />
+      <Meme meme={meme} />
     </div>
   )
 }
