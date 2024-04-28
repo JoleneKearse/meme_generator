@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
+
+import Instructions from "./Instructions";
 import Button from "./Button";
 import Input from "./Input";
 import Meme from "./Meme";
+
+import help from "../assets/help.svg"
 
 const Form = () => {
   const [meme, setMeme] = useState({
@@ -11,12 +15,17 @@ const Form = () => {
     altText: "Batman smacking Robin",
   });
   const [allMemes, setAllMemes] = useState([]);
+  const [showInstructions, setShowInstructions] = useState(true);
 
   useEffect(() => {
     fetch("https://api.imgflip.com/get_memes")
       .then(response => response.json())
       .then(data => setAllMemes(data.data.memes))
   }, [])
+
+  const handleHelpClick = () => {
+    setShowInstructions(!showInstructions);
+  }
 
   const getMemeImage = () => {
     const randomNumber = Math.floor(Math.random() * allMemes.length);
@@ -39,8 +48,19 @@ const Form = () => {
   }
 
   return (
-    <div className='font-mono text-xl text-stone-200'>
+    <div className="relative font-mono text-xl text-stone-200">
       <div className="grid">
+        <button
+          className="absolute mt-4 right-10 hover:scale-110"
+          onClick={handleHelpClick}
+        >
+          <img
+            src={help}
+            alt="help button"
+            className="w-8"
+          />
+        </button>
+        {showInstructions && <Instructions />}
         <Input
           labelName={"Top Text"}
           placeholder={"Top Text"}
@@ -60,7 +80,7 @@ const Form = () => {
           handleChange={handleChange}
         />
       </div>
-      <Button getMemeImage={getMemeImage} />
+      <Button getMemeImage={getMemeImage} text="Get a new Meme image" />
       <Meme meme={meme} />
     </div>
   )
