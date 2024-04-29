@@ -24,7 +24,7 @@ const Meme = ({ meme }) => {
 
   return (
     <button
-      className="relative flex flex-col items-center justify-center min-w-full"
+      className="relative flex flex-col items-center justify-center min-w-full border-none focus-visible:ring-4 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
       ref={sectionRef}
       onClick={capture}
       title="Click to download meme"

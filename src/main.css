@@ -677,6 +677,10 @@ video {
   border-width: 2px;
 }
 
+.border-none{
+  border-style: none;
+}
+
 .border-slate-950{
   --tw-border-opacity: 1;
   border-color: rgb(2 6 23 / var(--tw-border-opacity));
