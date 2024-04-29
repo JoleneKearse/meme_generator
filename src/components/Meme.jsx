@@ -9,6 +9,7 @@ const Meme = ({ meme }) => {
     const section = sectionRef.current;
     html2canvas(section, {
       useCORS: true,
+      backgroundColor: null,
     })
       .then((canvas) => {
         const image = canvas.toDataURL("image/png");
