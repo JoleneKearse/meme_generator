@@ -1,13 +1,15 @@
 import { useRef } from "react";
+import Draggable from "react-draggable";
 
 import html2canvas from "html2canvas";
 
 const Meme = ({ meme }) => {
-  const sectionRef = useRef(null);
+  const memeRef = useRef(null);
 
+  // make finished meme downloadable
   const capture = () => {
-    const section = sectionRef.current;
-    html2canvas(section, {
+    const memeArea = memeRef.current;
+    html2canvas(memeArea, {
       useCORS: true,
       backgroundColor: null,
     })
@@ -24,18 +26,30 @@ const Meme = ({ meme }) => {
 
   return (
     <button
-      className="relative flex flex-col items-center justify-center min-w-full"
-      ref={sectionRef}
-      onClick={capture}
-      title="Click to download meme"
+      className="relative flex flex-col items-center justify-center inline-block min-w-full border-none focus-visible:ring-4 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
+      onDoubleClick={capture}
+      title="Double click to download meme"
+      ref={memeRef}
     >
       <img
         src={meme.randomImage}
         alt={meme.altText}
         className="my-20"
       />
-      <h3 className="absolute text-3xl tracking-wide text-center top-24 font-rubik drop-shadow text-shadow-heavy">{meme.topText}</h3>
-      <h3 className="absolute text-3xl tracking-wide text-center bottom-24 font-rubik text-shadow-heavy">{meme.bottomText}</h3>
+      <Draggable bounds="parent">
+        <h3
+          className="absolute z-10 text-3xl tracking-wide text-center font-rubik drop-shadow text-shadow-heavy top-24"
+        >
+          {meme.topText}
+        </h3>
+      </Draggable>
+      <Draggable bounds="parent">
+        <h3
+          className="absolute z-10 text-3xl tracking-wide text-center font-rubik drop-shadow text-shadow-heavy bottom-24"
+        >
+          {meme.bottomText}
+        </h3>
+      </Draggable>
     </button>
   )
 }
