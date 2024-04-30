@@ -9,7 +9,6 @@ import html2canvas from "html2canvas";
 const Meme = ({ meme }) => {
   const memeRef = useRef(null);
   const memeButtonRef = useRef(null);
-  const [copy, setCopy] = useState(true);
   const [imageSize, setImageSize] = useState({
     width: 0,
     height: 0,
@@ -26,15 +25,12 @@ const Meme = ({ meme }) => {
   useEffect(() => {
     const updatePositions = () => {
       const buttonRect = memeButtonRef.current.getBoundingClientRect();
-      console.log(buttonRect.height)
       setMemeButtonSize({
         width: buttonRect.width,
         height: buttonRect.height
       });
       const imageHeight = memeRef.current.clientHeight;
-      console.log(imageHeight);
-      const offsetY = (buttonRect.height - imageHeight) / 2; // Offset if any space above/below the image
-      console.log(offsetY);
+      const offsetY = (buttonRect.height - imageHeight) / 2;
 
       setPositions({
         top: { x: buttonRect.width * 0.1, y: offsetY + imageHeight * 0.1 },
@@ -59,16 +55,16 @@ const Meme = ({ meme }) => {
   }
 
   const handleCopyClick = () => {
-    capture();
+    capture("copy");
+    alert("Copied to clipboard");
   }
 
   const handleDownloadClick = () => {
-    setCopy(prevCopy => !prevCopy)
-    capture();
+    capture("download");
   }
 
   // make finished meme screenshot
-  const capture = () => {
+  const capture = (action) => {
     const memeArea = memeButtonRef.current;
     html2canvas(memeArea, {
       useCORS: true,
@@ -78,13 +74,13 @@ const Meme = ({ meme }) => {
         const clonedBottomText = clonedDocument.getElementById('bottom-text');
 
         if (clonedTopText && clonedBottomText) {
-          clonedTopText.style.top = `${parseInt(clonedTopText.style.top, 10) - 10}px`;
+          clonedTopText.style.top = `${parseInt(clonedTopText.style.top, 10) - 5}px`;
           clonedBottomText.style.bottom = `${parseInt(clonedBottomText.style.bottom, 10) - -10}px`;
         }
       }
     })
       .then((canvas) => {
-        if (!copy) {
+        if (action === "download") {
           const image = canvas.toDataURL("image/png");
           const link = document.createElement("a");
           link.href = image;
@@ -92,7 +88,7 @@ const Meme = ({ meme }) => {
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
-        } else {
+        } else if (action === "copy") {
           canvas.toBlob((blob) => {
             if (navigator.clipboard && window.isSecureContext) {
               navigator.clipboard.write([
@@ -109,14 +105,14 @@ const Meme = ({ meme }) => {
   return (
     <>
       <button
-        className="relative flex flex-col items-center justify-center inline-block min-w-full border-none focus-visible:ring-4 focus-visible:ring-sky-500 focus-visible:ring-offset-2 outline"
+        className="relative flex flex-col items-center justify-center inline-block min-w-full border-none focus-visible:ring-4 focus-visible:ring-sky-500 focus-visible:ring-offset-2"
         ref={memeButtonRef}
 
       >
         <img
           src={meme.randomImage}
           alt={meme.altText}
-          className="my-20 max-h-fit"
+          className="max-h-fit"
           onLoad={handleImageLoad}
           ref={memeRef}
         />
@@ -139,9 +135,9 @@ const Meme = ({ meme }) => {
           </h3>
         </Draggable>
       </button>
-      <div className="flex items-center justify-between -m-10">
-        <button title="Copy to clipboard" className="w-8" onClick={handleCopyClick}><img src={Copy} alt="copy" /></button>
-        <button title="Download to device" className="w-8 h-8" onClick={handleDownloadClick}><img src={Download} alt="download" /></button>
+      <div className="flex items-center justify-between m-10 mb-20">
+        <button title="Copy to clipboard" className="w-8 hover:scale-110" onClick={handleCopyClick}><img src={Copy} alt="copy" /></button>
+        <button title="Download to device" className="w-8 h-8 hover:scale-110" onClick={handleDownloadClick}><img src={Download} alt="download" /></button>
       </div>
     </>
   )

@@ -546,10 +546,6 @@ video {
   --tw-backdrop-sepia:  ;
 }
 
-.static{
-  position: static;
-}
-
 .absolute{
   position: absolute;
 }
@@ -566,10 +562,6 @@ video {
   right: 2.5rem;
 }
 
-.top-24{
-  top: 6rem;
-}
-
 .top-16{
   top: 4rem;
 }
@@ -582,8 +574,8 @@ video {
   grid-column: span 2 / span 2;
 }
 
-.-m-10{
-  margin: -2.5rem;
+.m-10{
+  margin: 2.5rem;
 }
 
 .my-10{
@@ -591,8 +583,7 @@ video {
   margin-bottom: 2.5rem;
 }
 
-.my-20{
-  margin-top: 5rem;
+.mb-20{
   margin-bottom: 5rem;
 }
 
@@ -819,10 +810,6 @@ video {
 .text-stone-900{
   --tw-text-opacity: 1;
   color: rgb(28 25 23 / var(--tw-text-opacity));
-}
-
-.outline{
-  outline-style: solid;
 }
 
 .drop-shadow{
