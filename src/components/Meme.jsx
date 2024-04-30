@@ -64,14 +64,14 @@ const Meme = ({ meme }) => {
         />
         <Draggable bounds="parent">
           <h3
-            className="absolute z-10 text-3xl tracking-wide text-center font-rubik drop-shadow text-shadow-heavy top-24"
+            className="absolute z-10 text-xl tracking-wide text-center font-rubik drop-shadow text-shadow-heavy top-24 lg:text-3xl"
           >
             {meme.topText}
           </h3>
         </Draggable>
         <Draggable bounds="parent">
           <h3
-            className="absolute z-10 text-3xl tracking-wide text-center font-rubik drop-shadow text-shadow-heavy bottom-24"
+            className="absolute z-10 text-xl tracking-wide text-center font-rubik drop-shadow text-shadow-heavy bottom-24 lg:text-3xl"
           >
             {meme.bottomText}
           </h3>
