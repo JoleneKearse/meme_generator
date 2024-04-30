@@ -14,6 +14,7 @@ const Meme = ({ meme }) => {
       backgroundColor: null,
     })
       .then((canvas) => {
+        // for download
         const image = canvas.toDataURL("image/png");
         const link = document.createElement("a");
         link.href = image;
@@ -21,6 +22,16 @@ const Meme = ({ meme }) => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        // to copy to clipboard
+        canvas.toBlob((blob) => {
+          if (navigator.clipboard && window.isSecureContext) {
+            navigator.clipboard.write([
+              new ClipboardItem({
+                "image/png": blob,
+              })
+            ])
+          }
+        })
       })
   }
 
