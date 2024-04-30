@@ -8,7 +8,7 @@ const Header = () => {
         <h1 className="text-3xl font-semibold text-stone-200">Meme Generator</h1>
       </div>
       <div>
-        <h2 className="text-base text-stone-200">React Course - Project 3</h2>
+        <h2 className="text-base text-stone-200">Customize your memes!</h2>
       </div>
     </header>
   )
