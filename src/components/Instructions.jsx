@@ -9,6 +9,7 @@ const Instructions = () => {
       >
         <li>Click the button for a new meme.</li>
         <li>Add your text to top, bottom, or both!</li>
+        <li>Drag text wherever you want it.</li>
         <li>Double click on your meme to download it.</li>
       </ol>
     </article>
