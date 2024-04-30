@@ -11,16 +11,16 @@ const Form = () => {
   const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
-    randomImage: "https://i.imgflip.com/9ehk.jpg",
-    altText: "Batman smacking Robin",
+    randomImage: "https://api.memegen.link/images/reveal.png",
+    altText: "Scooby Doo Reveal",
   });
   const [allMemes, setAllMemes] = useState([]);
   const [showInstructions, setShowInstructions] = useState(false);
 
   useEffect(() => {
-    fetch("https://api.imgflip.com/get_memes")
+    fetch("https://api.memegen.link/templates/")
       .then(response => response.json())
-      .then(data => setAllMemes(data.data.memes))
+      .then(data => setAllMemes(data))
   }, [])
 
   const handleHelpClick = () => {
@@ -30,7 +30,7 @@ const Form = () => {
   const getMemeImage = () => {
     const randomNumber = Math.floor(Math.random() * allMemes.length);
     const randomMeme = allMemes[randomNumber];
-    const url = randomMeme.url;
+    const url = randomMeme.blank;
     const alt = randomMeme.name;
     setMeme(prevMeme => ({
       ...prevMeme,
