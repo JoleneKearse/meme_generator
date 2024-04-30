@@ -1,6 +1,8 @@
 # Meme Generator
 
-Visit the [live site](https://meme-generator-vkdn.vercel.app/)
+![walkthrough of Meme Generator showing instruction, selecting a great meme image, adding text, copying to clipboard, dragging text and downloading](./src/assets/walkthrough.gif)
+
+Visit the [live site](https://meme-generator-vkdn.vercel.app/) to create your own memes!
 
 This is a *heavily-modified* project from the [Scrimba Frontend Developer Career Path](https://scrimba.com/learn/frontend) that I began long ago, but just returned to in April 2024.  
 
@@ -15,7 +17,7 @@ There were some changes I made right off the bat, including:
 
 ![JavaScript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)  ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)  ![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white)  ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
-Built with JavaScript, React, Tailwind CSS, Vite, PNPM, and the [ImgFlip API](https://imgflip.com/api)
+Built with JavaScript, React, Tailwind CSS, Vite, PNPM, and the [Memegen.link API](https://memegen.link/).
 
 ## The Project 🗒️
 
@@ -32,9 +34,6 @@ The learning goals were:
 - Working with **Forms** in React,
 - And managing **side effects**
 
-Here's what I ended up with:
-![walkthrough of my app](./src/assets/walkthrough.gif)
-
 <br/>
 
 ## My Extras 💪
@@ -42,7 +41,9 @@ Here's what I ended up with:
 2. I made it more **modular** by breaking out the `Input`, `Meme` and `Button` custom elements into their own components.  This also challenged me, because I had to consider the implications for **State** a lot more. 😅
 3. I made one **accessibility** feature by adding the meme's returned name to the **alt text**.
 ![alt text in DevTools](./src/assets/alt-text.png)
-3. What good is a meme generator that doesn't let you easily share them?  Sure you could screenshot it, but I found [html2canvas](https://www.npmjs.com/package/html2canvas/v/1.4.1) that will screenshot a particular DOM element for download.
+4. What good is a meme generator that doesn't let you easily share them?  Sure you could screenshot it, but I found [html2canvas](https://www.npmjs.com/package/html2canvas/v/1.4.1) that will screenshot a particular DOM element for download.
+5. Who downloads them?  I added the ability to copy to your clipboard.
+6. Every meme has its own 'order', so obviously I needed to add **drop and drag**!
 
 ## Challenges I Faced 🚞
 
