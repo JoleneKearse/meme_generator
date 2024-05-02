@@ -21,6 +21,7 @@ const Meme = ({ meme }) => {
     top: { x: 0, y: 0 },
     bottom: { x: 0, y: 0 },
   });
+  const [isCopied, setIsCopied] = useState(false);
 
   useEffect(() => {
     const updatePositions = () => {
@@ -56,7 +57,7 @@ const Meme = ({ meme }) => {
 
   const handleCopyClick = () => {
     capture("copy");
-    alert("Copied to clipboard");
+    alert(isCopied ? "Copied to clipboard" : "Copy failed, please download");
   }
 
   const handleDownloadClick = () => {
