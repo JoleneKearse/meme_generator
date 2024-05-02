@@ -57,7 +57,6 @@ const Meme = ({ meme }) => {
 
   const handleCopyClick = () => {
     capture("copy");
-    alert(isCopied ? "Copied to clipboard" : "Copy failed, please download");
   }
 
   const handleDownloadClick = () => {
@@ -90,13 +89,22 @@ const Meme = ({ meme }) => {
           link.click();
           document.body.removeChild(link);
         } else if (action === "copy") {
-          canvas.toBlob((blob) => {
+          canvas.toBlob(async (blob) => {
             if (navigator.clipboard && window.isSecureContext) {
-              navigator.clipboard.write([
-                new ClipboardItem({
-                  "image/png": blob,
-                })
-              ])
+              try {
+                await navigator.clipboard.write([
+                  new ClipboardItem({ "image/png": blob })
+                ]);
+                setIsCopied(true);
+                alert("Copied to clipboard.");
+              } catch (error) {
+                console.error("Failed to copy image to clipboard:", error);
+                setIsCopied(false);
+                alert("Failed to copy. Please try again.");
+              }
+            } else {
+              setIsCopied(false);
+              alert("Clipboard functionality not available.");
             }
           })
         }
