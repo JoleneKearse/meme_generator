@@ -1,8 +1,23 @@
 # Meme Generator
+<br>
 
-![walkthrough of Meme Generator showing instruction, selecting a great meme image, adding text, copying to clipboard, dragging text and downloading](./src/assets/walkthrough.gif)
+![walkthrough of Meme Generator showing instruction, selecting a great meme image, adding text, copying to clipboard, dragging text and downloading](./src/assets/walkthrough.gif#centered)
+<style>
+  img[src$="#centered"] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  img[src$="#lg"] {
+    max-width: 70%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>
 
-Visit the [live site](https://meme-generator-vkdn.vercel.app/) to create your own memes!
+
+**Visit the [live site](https://meme-generator-vkdn.vercel.app/) to create your own memes!**
 
 This is a *heavily-modified* project from the [Scrimba Frontend Developer Career Path](https://scrimba.com/learn/frontend) that I began long ago, but just returned to in April 2024.  
 
@@ -25,7 +40,11 @@ Meme Generator pulls popular meme images from an API and allows the user to find
 
 Here's the given project:
 
-![sample screenshot](./src/assets/meme-gen.png)
+
+
+![sample screenshot](./src/assets/meme-gen.png#lg)
+
+
 
 The learning goals were:
 - Employing more **Event Listeners**
@@ -40,7 +59,7 @@ The learning goals were:
 1. I wanted to use **Tailwind CSS**, because, when I had began this project (maybe a year ago? 🤔) I hadn't had too much practice with it.  During *coding-phase 2*, I only had issues with the styling of the meme text.  (More about that below.)
 2. I made it more **modular** by breaking out the `Input`, `Meme` and `Button` custom elements into their own components.  This also challenged me, because I had to consider the implications for **State** a lot more. 😅
 3. I made one **accessibility** feature by adding the meme's returned name to the **alt text**.
-![alt text in DevTools](./src/assets/alt-text.png)
+![alt text in DevTools](./src/assets/alt-text.png#lg)
 4. What good is a meme generator that doesn't let you easily share them?  Sure you could screenshot it, but I found [html2canvas](https://www.npmjs.com/package/html2canvas/v/1.4.1) that will screenshot a particular DOM element for download.
 5. Who downloads them?  I added the ability to copy to your clipboard.
 6. Every meme has its own 'order', so obviously I needed to add **drop and drag**!
@@ -91,7 +110,7 @@ I was 💯 *sure* I'd done this before, so I spent a lot of time going through m
 4. Define the function.
 5. Set up the `onClick` where desired.
 
-![code using html2canvas in my section tag](./src/assets/capture.png)
+![code using html2canvas in my section tag](./src/assets/capture.png#lg)
 
 All that was *awesome*!  It captured the full section...
 
@@ -103,3 +122,11 @@ So, close, it was just missing the meme! 🤦‍♀️
 I experimented with lots of solutions, then noticed that the image url was showing in **DevTools**, so what the heck? 🤔
 
 I remembered scanning over the docs and seeing **CORS**. 😱 Finally, I did a more thorough read and found I could simply add an option to allow that.  (You can see the solution in the code above, beside the pink asterisk on line 11.)
+
+### Keeping the user draggable text where the user placed it
+
+When the user dragged the text to a new location, the screenshot feature would move the text slightly.
+
+I know, not a *huge* problem, but still not one I was happy with.
+
+It stemmed from the images not being a consistent size, so I had to write quite a lot of code as a workaround.  I used an `onLoad` event on the `img` tag to calculate the image size to dynamically calculate the text positions.  Then throw a bunch of magic numbers at it for the `onclone` method to make the meme with text static on capture.

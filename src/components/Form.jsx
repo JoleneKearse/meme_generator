@@ -34,6 +34,8 @@ const Form = () => {
     const alt = randomMeme.name;
     setMeme(prevMeme => ({
       ...prevMeme,
+      topText: "",
+      bottomText: "",
       randomImage: url,
       altText: alt
     }));
